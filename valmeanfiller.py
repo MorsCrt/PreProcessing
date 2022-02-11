@@ -86,5 +86,3 @@ print('Duration: {}'.format(end_time - start_time))
 # yas = imputer.transform(yas)
 #
 # sonuc = pd.DataFrame(data=yas,index=range(len(yas)),columns=missval_colname)
-#
-# print(sonuc)
