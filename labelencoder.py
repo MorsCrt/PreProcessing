@@ -7,10 +7,7 @@ df = pd.read_csv("eksikveriler.csv")
 
 
 def labelencoder(dataframe):
-    """
-    :param dataframe:
-    :return: encoded dataframe
-    """
+
     cat_colname = dataframe.select_dtypes(
         include=['object']).columns.values
     cat_uniq_colname = [col for col in dataframe[cat_colname]
@@ -33,4 +30,5 @@ def labelencoder(dataframe):
 start_time = datetime.now()
 x = labelencoder(df)
 end_time = datetime.now()
+print(help(labelencoder(df)))
 print('Duration: {}'.format(end_time - start_time))
