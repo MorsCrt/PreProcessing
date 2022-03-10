@@ -7,7 +7,8 @@ df = pd.read_csv("eksikveriler.csv")
 
 
 def labelencoder(dataframe):
-
+    
+    # Column names containing categorical data
     cat_colname = dataframe.select_dtypes(
         include=['object']).columns.values
     cat_uniq_colname = [col for col in dataframe[cat_colname]
@@ -22,7 +23,8 @@ def labelencoder(dataframe):
                                    index=range(len(ohe_col)),
                                    columns=unique_rows)
     dataframe = dataframe.drop(cat_uniq_colname, axis=1)
-    dataframe = pd.concat([dataframe, dataframe_encod], axis=1)  # Concat mean filled table and dropped dataframe
+    # Concat mean filled table and dropped dataframe
+    dataframe = pd.concat([dataframe, dataframe_encod], axis=1)  
 
     return dataframe
 
