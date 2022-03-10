@@ -23,15 +23,16 @@ def valmeanfiller(dataframe):
     df_misscol = dataframe[inter_colnames].values  # List to dataframe
     imputer = imputer.fit(df_misscol)
     df_misscol = imputer.transform(df_misscol)
-
-    df = dataframe.drop(inter_colnames, axis=1)  # Drop columns(have missing values) on the main dataframe
+    
+     # Drop columns(have missing values) on the main dataframe
+    df = dataframe.drop(inter_colnames, axis=1) 
 
     df_filled = pd.DataFrame(data=df_misscol,
                              index=range(len(df_misscol)),
                              columns=inter_colnames)
-
-
-    df = pd.concat([df, df_filled], axis=1)  # Concat mean filled table and dropped dataframe
+    
+    # Concat mean filled table and dropped dataframe
+    df = pd.concat([df, df_filled], axis=1)  
 
     return df
 
