@@ -41,3 +41,4 @@ df_meanfilled = valmeanfiller(df)
 end_time = datetime.now()
 df_meanfilled.to_csv("alldone.csv",index=False)
 print('Duration: {}'.format(end_time - start_time))
+
